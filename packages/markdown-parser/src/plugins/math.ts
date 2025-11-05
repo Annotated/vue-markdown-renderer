@@ -173,6 +173,7 @@ export function applyMath(md: MarkdownIt, mathOpts?: MathOptions) {
       ['$$', '$$'],
       ['\\(', '\\)'],
       ['\(', '\)'],
+      ['$', '$'],
     ]
 
     let searchPos = 0

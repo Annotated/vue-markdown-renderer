@@ -1,3 +1,6 @@
 packages:
   - playground
   - packages/*
+
+overrides:
+  stream-markdown-parser: link:../../../../Library/pnpm/global/5/node_modules/stream-markdown-parser

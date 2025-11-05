@@ -86,7 +86,7 @@ export function isMathLike(s: string) {
   const words = WORDS_RE.test(norm)
   // 纯单个英文字命，也渲染成数学公式
   // e.g. (w) (x) (y) (z)
-  // const pureWord = /^\([a-zA-Z]\)$/i.test(stripped)
+  const pureWord = /^[a-z]$/i.test(stripped)
 
-  return texCmd || texCmdWithBraces || texBraceStart || texSpecific || superSub || ops || funcCall || words
+  return texCmd || texCmdWithBraces || texBraceStart || texSpecific || superSub || ops || funcCall || words || pureWord
 }
