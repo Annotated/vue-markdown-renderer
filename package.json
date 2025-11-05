@@ -1,20 +1,11 @@
 {
   "name": "vue-renderer-markdown",
   "type": "module",
-  "version": "0.0.61-beta.7",
+  "version": "0.0.62",
   "packageManager": "pnpm@10.20.0",
   "description": "Vue 3 Markdown renderer optimized for large docs: progressive Mermaid, streaming diff code blocks, and fast real-time preview.",
   "author": "Simon He",
   "license": "MIT",
-  "homepage": "https://github.com/Simon-He95/vue-markdown-render",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Simon-He95/vue-markdown-render.git",
-    "homepage": "https://github.com/Simon-He95/vue-markdown-render"
-  },
-  "bugs": {
-    "url": "https://github.com/Simon-He95/vue-markdown-render/issues"
-  },
   "keywords": [
     "vue",
     "vue3",
@@ -34,6 +25,9 @@
     "performance",
     "real-time-preview"
   ],
+  "publishConfig": {
+    "registry": "http://nexus.kukewang.com/repository/kk-nodejs/"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
