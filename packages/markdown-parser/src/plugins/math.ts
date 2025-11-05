@@ -171,9 +171,9 @@ export function applyMath(md: MarkdownIt, mathOpts?: MathOptions) {
     }
     const delimiters: [string, string][] = [
       ['$$', '$$'],
+      ['$', '$'],
       ['\\(', '\\)'],
       ['\(', '\)'],
-      ['$', '$'],
     ]
 
     let searchPos = 0
