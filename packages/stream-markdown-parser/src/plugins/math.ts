@@ -114,11 +114,11 @@ export function normalizeStandaloneBackslashT(s: string, opts?: MathOptions) {
   // Build or reuse regex: match control chars or unescaped command words.
   let re: RegExp
   if (useDefault) {
-    re = new RegExp(`${CONTROL_CHARS_CLASS}|(?<!\\\\|\\w)(${ESCAPED_KATEX_COMMANDS})\\b`, 'g')
+    re = new RegExp(`(?:^|[^\\\\\\w])(${ESCAPED_KATEX_COMMANDS})\\b|${CONTROL_CHARS_CLASS}`, 'g')
   }
   else {
     const commandPattern = `(?:${commands.slice().sort((a, b) => b.length - a.length).map(c => c.replace(/[.*+?^${}()|[\\]\\"\]/g, '\\$&')).join('|')})`
-    re = new RegExp(`${CONTROL_CHARS_CLASS}|(?<!\\\\|\\w)(${commandPattern})\\b`, 'g')
+    re = new RegExp(`(?:^|[^\\\\\\w])(${commandPattern})\\b|${CONTROL_CHARS_CLASS}`, 'g')
   }
 
   let out = s.replace(re, (m: string, cmd?: string) => {

@@ -36,7 +36,7 @@ const TEX_SPECIFIC_RE = /\\(?:text|frac|left|right|times)/
 // Use a RegExp constructed from a string to avoid issues escaping '/' in a
 // regex literal on some platforms/linters.
 // eslint-disable-next-line prefer-regex-literals
-const OPS_RE = new RegExp('(?<!\\+)\\+(?!\\+)|[=\\-*/^<>]|\\\\times|\\\\pm|\\\\cdot|\\\\le|\\\\ge|\\\\neq')
+const OPS_RE = new RegExp('(?:^|[^\\+])\\+(?!\\+)|[=\\-*/^<>]|\\\\times|\\\\pm|\\\\cdot|\\\\le|\\\\ge|\\\\neq')
 const FUNC_CALL_RE = /[A-Z]+\s*\([^)]+\)/i
 const WORDS_RE = /\b(?:sin|cos|tan|log|ln|exp|sqrt|frac|sum|lim|int|prod)\b/
 // Heuristic to detect common date/time patterns like 2025/9/30 21:37:24 and

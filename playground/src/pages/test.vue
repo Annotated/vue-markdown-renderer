@@ -10,26 +10,48 @@ import { setMermaidWorker } from '../../../src/workers/mermaidWorkerClient'
 import 'katex/dist/katex.min.css'
 
 // 用户输入（直接作为 preview 的内容）
-const input = ref<string>(`# Hello
+const input = ref<string>(`
+以下是几个重要的**三角函数公式**，涵盖基本定义、恒等式和常用关系：
 
-这是一个测试页面。左侧编辑输入，右侧实时预览渲染结果。
+---
 
-示例包含：
+### 1. **基本三角函数定义**（在直角三角形中）
+对于一个锐角 $ \\theta $：
+- 正弦：$ \\sin(\\theta) = \\frac{\text{对边}}{\text{斜边}} $
+- 余弦：$ \cos(\theta) = \frac{\text{邻边}}{\text{斜边}} $
+- 正切：$ \tan(\theta) = \frac{\text{对边}}{\text{邻边}} = \frac{\sin(\theta)}{\cos(\theta)} $
 
-  - **加粗**、*斜体*、` + '`inline code`' + `
-- 代码块：
+---
 
-\`\`\`js
-console.log('hello')
-\`\`\`
+### 2. **倒数关系**
+- $ \csc(\theta) = \frac{1}{\sin(\theta)} $
+- $ \sec(\theta) = \frac{1}{\cos(\theta)} $
+- $ \cot(\theta) = \frac{1}{\tan(\theta)} $
 
-数学：$$E=mc^2$$
-Mermaid 示例：
+---
 
-\`\`\`mermaid
-graph TD
-  A-->B
-\`\`\`
+### 3. **平方和恒等式**
+- $ \sin^2(\theta) + \cos^2(\theta) = 1 $
+- $ 1 + \tan^2(\theta) = \sec^2(\theta) $
+- $ 1 + \cot^2(\theta) = \csc^2(\theta) $
+
+---
+
+### 4. **和角公式**
+- $ \sin(a \pm b) = \sin a \cos b \pm \cos a \sin b $
+- $ \cos(a \pm b) = \cos a \cos b \mp \sin a \sin b $
+- $ \tan(a \pm b) = \frac{\tan a \pm \tan b}{1 \mp \tan a \tan b} $
+
+---
+
+### 5. **二倍角公式**
+- $ \sin(2\theta) = 2\sin(\theta)\cos(\theta) $
+- $ \cos(2\theta) = \cos^2(\theta) - \sin^2(\theta) = 2\cos^2(\theta) - 1 = 1 - 2\sin^2(\theta) $
+- $ \tan(2\theta) = \frac{2\tan(\theta)}{1 - \tan^2(\theta)} $
+
+---
+
+如果您需要某种特定场景下的三角函数公式（如傅里叶级数、解三角形、极坐标等），请告诉我具体需求，我可以为您生成更合适的公式！
 `)
 
 // 流式渲染相关状态
