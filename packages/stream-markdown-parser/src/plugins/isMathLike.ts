@@ -22,7 +22,7 @@ export const TEX_BRACE_COMMANDS = [
 export const ESCAPED_TEX_BRACE_COMMANDS = TEX_BRACE_COMMANDS.map(c => c.replace(/[.*+?^${}()|[\\]"\]/g, '\\$&')).join('|')
 
 const TEX_CMD_RE = /\\[a-z]+/i
-const PREFIX_CLASS = '(?:\\\\|\\u0008)'
+const PREFIX_CLASS = String.raw`(?:\\|\u0008)`
 const TEX_CMD_WITH_BRACES_RE = new RegExp(`${PREFIX_CLASS}(?:${ESCAPED_TEX_BRACE_COMMANDS})\\s*\\{[^}]+\\}`, 'i')
 // Detect brace-taking TeX commands even when the leading backslash or the
 // closing brace/content is missing (e.g. "operatorname{" or "operatorname{span").
@@ -36,7 +36,7 @@ const TEX_SPECIFIC_RE = /\\(?:text|frac|left|right|times)/
 // Use a RegExp constructed from a string to avoid issues escaping '/' in a
 // regex literal on some platforms/linters.
 // eslint-disable-next-line prefer-regex-literals
-const OPS_RE = new RegExp('(?:^|[^\\+])\\+(?!\\+)|[=\\-*/^<>]|\\\\times|\\\\pm|\\\\cdot|\\\\le|\\\\ge|\\\\neq')
+const OPS_RE = new RegExp(String.raw`(?:^|[^+])\+(?!\+)|[=\-*/^<>]|\\times|\\pm|\\cdot|\\le|\\ge|\\neq`)
 const FUNC_CALL_RE = /[A-Z]+\s*\([^)]+\)/i
 const WORDS_RE = /\b(?:sin|cos|tan|log|ln|exp|sqrt|frac|sum|lim|int|prod)\b/
 // Heuristic to detect common date/time patterns like 2025/9/30 21:37:24 and
