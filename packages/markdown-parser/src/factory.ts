@@ -2,6 +2,7 @@ import type { MathOptions } from './config'
 import MarkdownIt from 'markdown-it-ts'
 import { getDefaultMathOptions } from './config'
 import { applyContainers } from './plugins/containers'
+import { applyFixHtmlInlineTokens } from './plugins/fixHtmlInline'
 import { applyFixLinkInline } from './plugins/fixLinkInline'
 import { applyFixLinkTokens } from './plugins/fixLinkTokens'
 import { applyFixListItem } from './plugins/fixListItem'
@@ -18,10 +19,11 @@ export interface FactoryOptions extends Record<string, unknown> {
 }
 
 export function factory(opts: FactoryOptions = {}) {
-  const md = MarkdownIt({
+  const md = new MarkdownIt({
     html: true,
     linkify: true,
     typographer: true,
+    stream: true,
     ...(opts.markdownItOptions ?? {}),
   })
 
@@ -46,6 +48,7 @@ export function factory(opts: FactoryOptions = {}) {
   // Apply table token normalization at block stage.
   applyFixTableTokens(md)
   applyRenderRules(md)
+  applyFixHtmlInlineTokens(md)
 
   return md
 }
